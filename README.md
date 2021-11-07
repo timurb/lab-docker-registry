@@ -1,6 +1,6 @@
 # Docker registry
 
-For running local labs you might want to do quite many image pulls and hit the limits imposed by Docker Inc.
+For running local labs you might want to do quite many image pulls and likely hit the limits imposed by Docker Inc.
 
 For that sake you can run local Docker registry and do all pulls from there.
 
@@ -25,6 +25,14 @@ If the registry is not up it is simply ignored and the requests go to the centra
 
 **Note:** Docker engines running inside VirtualBox/Vagrant are still going to the central Docker registry. You might need to do additional configurations for them to make them use the proxy
 
+## Shortcomings
+
+No cache maintenance is done. Some garbage collection procedures are described at: https://docs.docker.com/registry/garbage-collection/
+
+For now if you run out of space use the following command to clear the registry:
+```
+docker-compose down --volumes
+```
 
 ## License and author
 * License:: MIT
