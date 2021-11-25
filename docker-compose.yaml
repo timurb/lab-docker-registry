@@ -7,6 +7,8 @@ services:
     - 5000:5000
     volumes:
     - registry:/var/lib/registry:rw
+
+    # Temporarily comment out if you need to do pushes to the registry
     environment:
     - REGISTRY_PROXY_REMOTEURL=https://registry-1.docker.io
 

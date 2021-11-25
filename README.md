@@ -25,8 +25,11 @@ If the registry is not up it is simply ignored and the requests go to the centra
 
 **Note:** Docker engines running inside VirtualBox/Vagrant are still going to the central Docker registry. You might need to do additional configurations for them to make them use the proxy
 
-## Shortcomings
+## Limitations
+### Pushes
+No pushes supported (upstream limitation). To push to your registry temporarily comment out env var `REGISTRY_PROXY_REMOTEURL` in your `docker-compose.yml` and do all the pushes you need. When you are done put the env var back. Don't forget to restart registry on every change.
 
+### Maintenance
 No cache maintenance is done. Some garbage collection procedures are described at: https://docs.docker.com/registry/garbage-collection/
 
 For now if you run out of space use the following command to clear the registry:
